@@ -30,8 +30,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
-Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard'])->name('admin.dashboard');
+//Admin Group Middleware
+Route::middleware('auth', 'roles:admin')->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard'])->name('admin.dashboard');
+}); //End Admin Group Middleware
 
+//Instructor Group Middleware
+Route::middleware('auth', 'roles:instructor')->group(function () {
 Route::get('/instructor/dashboard', [InstructorController::class, 'instructorDashboard'])->name('instructor.dashboard');
+}); //End Instructor Group Middleware
