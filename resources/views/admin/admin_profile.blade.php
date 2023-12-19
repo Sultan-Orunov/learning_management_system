@@ -1,16 +1,17 @@
 @extends('admin.dashboard')
 
 @section('admin')
+
     <div class="page-content">
         <!--breadcrumb-->
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-            <div class="breadcrumb-title pe-3">User Profile</div>
+            <div class="breadcrumb-title pe-3">{{ ucfirst($profileData->role) }} Profile</div>
             <div class="ps-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 p-0">
                         <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">User Profilep</li>
+                        <li class="breadcrumb-item active" aria-current="page"> {{ ucfirst($profileData->role) }} Profile</li>
                     </ol>
                 </nav>
             </div>
@@ -23,11 +24,11 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="{{ $profileData->photo ? asset('backend/assets/images/avatars/'.$profileData->photo) : asset('backend/assets/images/avatars/no-avatar.jpg') }}" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+                                    <img src="{{ $profileData->photo ? asset('upload/admin_images/'.$profileData->photo) : asset('upload/no_image.jpg') }}" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
                                     <div class="mt-3">
-                                        <h4>{{ ucfirst($profileData->username) }}</h4>
-                                        <p class="text-secondary mb-1">Full Stack Developer</p>
-                                        <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+                                        <h4>{{ ucfirst($profileData->name) }}</h4>
+                                        <p class="text-secondary mb-1">{{ ucfirst($profileData->username) }}</p>
+                                        <p class="text-muted font-size-sm">{{ $profileData->email }}</p>
 {{--                                        <button class="btn btn-primary">Follow</button>--}}
 {{--                                        <button class="btn btn-outline-primary">Message</button>--}}
                                     </div>
@@ -48,46 +49,79 @@
                     </div>
                     <div class="col-lg-8">
                         <div class="card">
-                            <div class="card-body">
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Full Name</h6>
+                            <form action="{{ route('admin.profile.store', $profileData->id) }}" method="post" enctype="multipart/form-data">
+                                @csrf @method('patch')
+                                <div class="card-body">
+                                    <div class="row mb-3">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Name</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="text" name="name" class="@error('name') is-invalid @enderror form-control" value="{{ ucfirst($profileData->name) }}" />
+                                            @error('name') <span class="text-danger">{{ $message }}</span> @enderror
+                                        </div>
                                     </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <input type="text" class="form-control" value="{{ ucfirst($profileData->username) }}" />
+                                    <div class="row mb-3">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">User Name</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="text" name="username" class="@error('username') is-invalid @enderror form-control" value="{{ ucfirst($profileData->username) }}" />
+                                            @error('username') <span class="text-danger">{{ $message }}</span> @enderror
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Email</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="text" name="email"  class="@error('email') is-invalid @enderror form-control" value="{{ $profileData->email }}" />
+                                            @error('email') <span class="text-danger">{{ $message }}</span> @enderror
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Phone</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="text" name="phone"  class="@error('phone') is-invalid @enderror form-control" value="{{ ucfirst($profileData->phone) }}" />
+                                            @error('phone') <span class="text-danger">{{ $message }}</span> @enderror
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Address</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="text"  name="address"  class="@error('address') is-invalid @enderror form-control" value="{{ ucfirst($profileData->address) }}" />
+                                            @error('address') <span class="text-danger">{{ $message }}</span> @enderror
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Profile Image</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="file"  name="photo"  class="@error('photo') is-invalid @enderror form-control" id="image"/>
+                                            @error('photo') <span class="text-danger">{{ $message }}</span> @enderror
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0"></h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <img id="showImage" src="{{ $profileData->photo ? asset('upload/admin_images/'.$profileData->photo) : asset('upload/no_image.jpg') }}" alt="Admin" class="rounded-circle p-1 bg-primary" width="80">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3"></div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="submit" class="btn btn-primary px-4" value="Save Changes" />
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Email</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <input type="text" class="form-control" value="{{ ucfirst($profileData->email) }}" />
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Phone</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <input type="text" class="form-control" value="{{ ucfirst($profileData->phone) }}" />
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Address</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <input type="text" class="form-control" value="{{ ucfirst($profileData->address) }}" />
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-3"></div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <input type="button" class="btn btn-primary px-4" value="Save Changes" />
-                                    </div>
-                                </div>
-                            </div>
+                            </form>
                         </div>
 
                     </div>
@@ -95,4 +129,16 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $('#image').change(function(){
+
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                $('#showImage').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]);
+
+        });
+    </script>
 @endsection
