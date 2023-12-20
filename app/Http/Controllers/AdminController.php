@@ -17,13 +17,12 @@ class AdminController extends Controller
         return view('admin.index');
     }
 
-    public function adminProfile(){
-        $id = Auth::user()->id;
-        $profileData = User::find($id);
-        return view('admin.admin_profile', compact('profileData'));
+    public function adminProfile(User $user){
+
+        return view('admin.admin_profile', compact('user'));
     }
 
-    public function adminProfileStore(UpdateReques $request, User $user){
+    public function adminProfileUpdate(UpdateReques $request, User $user){
 
         $data = $request->validated();
 
@@ -52,5 +51,10 @@ class AdminController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('admin.login');
+    }
+
+    public function adminPasswordEdit(User $user){
+
+        return view('admin.admin_change_password', compact('user'));
     }
 }

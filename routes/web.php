@@ -38,8 +38,10 @@ Route::get('/admin/login', [AdminController::class, 'adminLogin'])->name('admin.
 Route::middleware('auth', 'roles:admin')->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard'])->name('admin.dashboard');
     Route::get('/admin/logout', [AdminController::class, 'adminLogout'])->name('admin.logout');
-    Route::get('/admin/profile', [AdminController::class, 'adminProfile'])->name('admin.profile');
-    Route::patch('/admin/profile/{user}', [AdminController::class, 'adminProfileStore'])->name('admin.profile.store');
+    Route::get('/admin/profile/{user}/edit', [AdminController::class, 'adminProfile'])->name('admin.profile');
+    Route::patch('/admin/profile/{user}', [AdminController::class, 'adminProfileUpdate'])->name('admin.profile.update');
+
+    Route::get('/admin/password/{user}/edit', [AdminController::class, 'adminPasswordEdit'])->name('admin.password.edit');
 }); //End Admin Group Middleware
 
 //Instructor Group Middleware
