@@ -42,6 +42,7 @@ Route::middleware('auth', 'roles:admin')->group(function () {
     Route::patch('/admin/profile/{user}', [AdminController::class, 'adminProfileUpdate'])->name('admin.profile.update');
 
     Route::get('/admin/password/{user}/edit', [AdminController::class, 'adminPasswordEdit'])->name('admin.password.edit');
+    Route::patch('/admin/password/{user}', [AdminController::class, 'adminPasswordUpdate'])->name('admin.password.update');
 }); //End Admin Group Middleware
 
 //Instructor Group Middleware

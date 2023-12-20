@@ -49,8 +49,8 @@
                     </div>
                     <div class="col-lg-8">
                         <div class="card">
-                            <form action="" method="post">
-                                @csrf
+                            <form action="{{ route('admin.password.update', $user->id) }}" method="post">
+                                @csrf @method('patch')
                                 <div class="card-body">
                                     <div class="row mb-3">
                                         <div class="col-sm-3">
@@ -75,8 +75,7 @@
                                             <h6 class="mb-0">Confirm Password</h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input type="password" name="password_confirmation" class="@error('password_confirmation') is-invalid @enderror form-control" />
-                                            @error('password_confirmation') <span class="text-danger">{{ $message }}</span> @enderror
+                                            <input type="password" name="password_confirmation" class="form-control" />
                                         </div>
                                     </div>
                                     <div class="row">

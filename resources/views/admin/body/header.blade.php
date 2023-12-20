@@ -336,7 +336,7 @@
             </div>
             <div class="user-box dropdown px-3">
                 <a class="d-flex align-items-center nav-link dropdown-toggle gap-3 dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="{{ isset($user->photo) ? asset('upload/admin_images/'.$user->photo) : asset('upload/no_image.jpg') }}" class="user-img" alt="user avatar">
+                    <img src="{{ isset(auth()->user()->photo) ? asset('upload/admin_images/'.auth()->user()->photo) : asset('upload/no_image.jpg') }}" class="user-img" alt="user avatar">
                     <div class="user-info">
                         <p class="user-name mb-0">{{ ucfirst(auth()->user()->username) }}</p>
                         <p class="designattion mb-0">{{ auth()->user()->email }}</p>
