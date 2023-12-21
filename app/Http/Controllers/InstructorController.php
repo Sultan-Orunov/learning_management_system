@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,5 +25,10 @@ class InstructorController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('instructor.login');
+    }
+
+    public function instructorProfile(User $user){
+
+        return view('instructor.instructor_profile', compact('user'));
     }
 }
