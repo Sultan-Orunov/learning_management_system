@@ -32,8 +32,6 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
-Route::get('/admin/login', [AdminController::class, 'adminLogin'])->name('admin.login');
-
 //Admin Group Middleware
 Route::middleware('auth', 'roles:admin')->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard'])->name('admin.dashboard');
@@ -44,9 +42,12 @@ Route::middleware('auth', 'roles:admin')->group(function () {
     Route::get('/admin/password/{user}/edit', [AdminController::class, 'adminPasswordEdit'])->name('admin.password.edit');
     Route::patch('/admin/password/{user}', [AdminController::class, 'adminPasswordUpdate'])->name('admin.password.update');
 }); //End Admin Group Middleware
+Route::get('/admin/login', [AdminController::class, 'adminLogin'])->name('admin.login');
+
 
 //Instructor Group Middleware
 Route::middleware('auth', 'roles:instructor')->group(function () {
     Route::get('/instructor/dashboard', [InstructorController::class, 'instructorDashboard'])->name('instructor.dashboard');
     Route::get('/instructor/logout', [InstructorController::class, 'instructorLogout'])->name('instructor.logout');
 }); //End Instructor Group Middleware
+Route::get('/instructor/login', [InstructorController::class, 'instructorLogin'])->name('instructor.login');

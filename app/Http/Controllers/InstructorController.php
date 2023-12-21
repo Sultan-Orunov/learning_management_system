@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Auth;
 
 class InstructorController extends Controller
 {
+    public function instructorLogin(){
+        return view('instructor.login');
+    }
+
     public function instructorDashboard(){
         return view('instructor.index');
     }
@@ -19,6 +23,6 @@ class InstructorController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect()->route('admin.login');
+        return redirect()->route('instructor.login');
     }
 }
