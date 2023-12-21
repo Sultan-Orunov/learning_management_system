@@ -49,7 +49,7 @@
                     </div>
                     <div class="col-lg-8">
                         <div class="card">
-                            <form action="{{ route('admin.profile.update', $user->id) }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('instructor.profile.update', $user->id) }}" method="post" enctype="multipart/form-data">
                                 @csrf @method('patch')
                                 <div class="card-body">
                                     <div class="row mb-3">
@@ -111,7 +111,7 @@
                                             <h6 class="mb-0"></h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <img id="showImage" src="{{ $user->photo ? asset('upload/admin_images/'.$user->photo) : asset('upload/no_image.jpg') }}" alt="Admin" class="rounded-circle p-1 bg-primary" width="80">
+                                            <img id="showImage" src="{{ $user->photo ? asset('upload/instructor_images/'.$user->photo) : asset('upload/no_image.jpg') }}" alt="Admin" class="rounded-circle p-1 bg-primary" width="80">
                                         </div>
                                     </div>
                                     <div class="row">

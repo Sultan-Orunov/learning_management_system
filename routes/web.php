@@ -51,6 +51,7 @@ Route::middleware('auth', 'roles:instructor')->group(function () {
     Route::get('/instructor/dashboard', [InstructorController::class, 'instructorDashboard'])->name('instructor.dashboard');
     Route::get('/instructor/logout', [InstructorController::class, 'instructorLogout'])->name('instructor.logout');
     Route::get('/instructor/profile/{user}/edit', [InstructorController::class, 'instructorProfile'])->name('instructor.profile');
+    Route::patch('/admin/profile/{user}', [InstructorController::class, 'instructorProfileUpdate'])->name('instructor.profile.update');
 });
 //End Instructor Group Middleware
 Route::get('/instructor/login', [InstructorController::class, 'instructorLogin'])->name('instructor.login');
