@@ -49,7 +49,7 @@
                     </div>
                     <div class="col-lg-8">
                         <div class="card">
-                            <form action="{{ route('admin.password.update', $user->id) }}" method="post">
+                            <form action="{{ route('instructor.password.update', $user->id) }}" method="post">
                                 @csrf @method('patch')
                                 <div class="card-body">
                                     <div class="row mb-3">

@@ -7,6 +7,7 @@ use App\Http\Requests\Instructor\UpdateReques;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class InstructorController extends Controller
 {
@@ -57,5 +58,23 @@ class InstructorController extends Controller
     public function instructorPasswordEdit(User $user){
 
         return view('instructor.change_password', compact('user'));
+    }
+
+    public function instructorPasswordUpdate(Request $request, User $user){
+        $data = $request->validate([
+            'old_password' => 'required|current_password',
+            'password' => 'required|confirmed'
+        ]);
+        unset($data['old_password']);
+        $data['password'] = Hash::make($data['password']);
+
+        $user->update($data);
+
+        $notification = [
+            'message' => 'Password Change Successfully',
+            'alert-type' => 'success'
+        ];
+
+        return redirect()->back()->with($notification);
     }
 }
