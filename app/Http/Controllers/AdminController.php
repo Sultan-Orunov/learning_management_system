@@ -56,7 +56,7 @@ class AdminController extends Controller
 
     public function adminPasswordEdit(User $user){
 
-        return view('admin.admin_change_password', compact('user'));
+        return view('admin.change_password', compact('user'));
     }
 
     public function adminPasswordUpdate(Request $request, User $user){

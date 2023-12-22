@@ -53,4 +53,9 @@ class InstructorController extends Controller
         $user->update($data);
         return redirect()->back()->with($notification);
     }
+
+    public function instructorPasswordEdit(User $user){
+
+        return view('instructor.change_password', compact('user'));
+    }
 }
