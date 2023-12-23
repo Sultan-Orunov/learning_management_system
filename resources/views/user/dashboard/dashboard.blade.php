@@ -26,7 +26,9 @@
     <!-- end inject -->
 </head>
 <body>
-
+@php
+    $user = auth()->user()
+@endphp
 <!-- start cssload-loader -->
 <div class="preloader">
     <div class="loader">

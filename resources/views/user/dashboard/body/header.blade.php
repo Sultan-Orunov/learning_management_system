@@ -5,7 +5,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-12">
                         <div class="logo-box logo--box">
-                            <a href="index.html" class="logo"><img src="images/logo.png" alt="logo"></a>
+                            <a href="{{ route('dashboard') }}" class="logo"><img src="{{ asset('frontend/images/logo.png') }}" alt="logo"></a>
                             <div class="user-btn-action">
                                 <div class="search-menu-toggle icon-element icon-element-sm shadow-sm mr-2" data-toggle="tooltip" data-placement="top" title="Search">
                                     <i class="la la-search"></i>
@@ -27,87 +27,7 @@
                             </form>
                             <div class="nav-right-button d-flex align-items-center">
                                 <div class="user-action-wrap d-flex align-items-center">
-                                    <div class="shop-cart course-cart pr-3 mr-3 border-right border-right-gray">
-                                        <ul>
-                                            <li>
-                                                <p class="shop-cart-btn d-flex align-items-center fs-16">
-                                                    My Courses
-                                                    <span class="la la-angle-down fs-13 ml-1"></span>
-                                                </p>
-                                                <ul class="cart-dropdown-menu after-none">
-                                                    <li class="media media-card">
-                                                        <a href="lesson-details.html" class="media-img">
-                                                            <img class="mr-3" src="images/small-img-3.jpg" alt="Course thumbnail image">
-                                                        </a>
-                                                        <div class="media-body">
-                                                            <h5><a href="lesson-details.html">The Complete JavaScript Course 2021: From Zero to Expert!</a></h5>
-                                                            <div class="skillbar-box pt-3">
-                                                                <div class="skillbar skillbar-skillbar" data-percent="36%">
-                                                                    <div class="skillbar-bar skillbar--bar bg-1"></div>
-                                                                </div><!-- End Skill Bar -->
-                                                            </div><!-- End skillbar-box -->
-                                                        </div>
-                                                    </li>
-                                                    <li class="media media-card">
-                                                        <a href="lesson-details.html" class="media-img">
-                                                            <img class="mr-3" src="images/small-img-4.jpg" alt="Course thumbnail image">
-                                                        </a>
-                                                        <div class="media-body">
-                                                            <h5><a href="lesson-details.html">The Complete JavaScript Course 2021: From Zero to Expert!</a></h5>
-                                                            <div class="skillbar-box pt-3">
-                                                                <div class="skillbar skillbar-skillbar" data-percent="77%">
-                                                                    <div class="skillbar-bar skillbar--bar bg-1"></div>
-                                                                </div><!-- End Skill Bar -->
-                                                            </div><!-- End skillbar-box -->
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <a href="my-courses.html" class="btn theme-btn w-100">Got to my course <i class="la la-arrow-right icon ml-1"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div><!-- end course-cart -->
-                                    <div class="shop-cart pr-3 mr-3 border-right border-right-gray">
-                                        <ul>
-                                            <li>
-                                                <p class="shop-cart-btn d-flex align-items-center">
-                                                    <i class="la la-shopping-cart fs-22"></i>
-                                                    <span class="dot-status bg-1"></span>
-                                                </p>
-                                                <ul class="cart-dropdown-menu after-none">
-                                                    <li class="media media-card">
-                                                        <a href="shopping-cart.html" class="media-img">
-                                                            <img class="mr-3" src="images/small-img.jpg" alt="Cart image">
-                                                        </a>
-                                                        <div class="media-body">
-                                                            <h5><a href="shopping-cart.html">The Complete JavaScript Course 2021: From Zero to Expert!</a></h5>
-                                                            <span class="d-block lh-18 py-1">Kamran Ahmed</span>
-                                                            <p class="text-black font-weight-semi-bold lh-18">$12.99 <span class="before-price fs-14">$129.99</span></p>
-                                                        </div>
-                                                    </li>
-                                                    <li class="media media-card">
-                                                        <a href="shopping-cart.html" class="media-img">
-                                                            <img class="mr-3" src="images/small-img.jpg" alt="Cart image">
-                                                        </a>
-                                                        <div class="media-body">
-                                                            <h5><a href="shopping-cart.html">The Complete JavaScript Course 2021: From Zero to Expert!</a></h5>
-                                                            <span class="d-block lh-18 py-1">Kamran Ahmed</span>
-                                                            <p class="text-black font-weight-semi-bold lh-18">$12.99 <span class="before-price fs-14">$129.99</span></p>
-                                                        </div>
-                                                    </li>
-                                                    <li class="media media-card">
-                                                        <div class="media-body fs-16">
-                                                            <p class="text-black font-weight-semi-bold lh-18">Total: <span class="cart-total">$12.99</span> <span class="before-price fs-14">$129.99</span></p>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <a href="shopping-cart.html" class="btn theme-btn w-100">Got to cart <i class="la la-arrow-right icon ml-1"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div><!-- end shop-cart -->
+
                                     <div class="shop-cart wishlist-cart pr-3 mr-3 border-right border-right-gray">
                                         <ul>
                                             <li>
@@ -119,20 +39,7 @@
                                                     <li>
                                                         <div class="media media-card">
                                                             <a href="course-details.html" class="media-img">
-                                                                <img class="mr-3" src="images/small-img.jpg" alt="Cart image">
-                                                            </a>
-                                                            <div class="media-body">
-                                                                <h5><a href="course-details.html">The Complete JavaScript Course 2021: From Zero to Expert!</a></h5>
-                                                                <span class="d-block lh-18 py-1">Kamran Ahmed</span>
-                                                                <p class="text-black font-weight-semi-bold lh-18">$12.99 <span class="before-price fs-14">$129.99</span></p>
-                                                            </div>
-                                                        </div>
-                                                        <a href="#" class="btn theme-btn theme-btn-sm theme-btn-transparent lh-28 w-100 mt-3">Add to cart <i class="la la-arrow-right icon ml-1"></i></a>
-                                                    </li>
-                                                    <li>
-                                                        <div class="media media-card">
-                                                            <a href="course-details.html" class="media-img">
-                                                                <img class="mr-3" src="images/small-img.jpg" alt="Cart image">
+                                                                <img class="mr-3" src="{{ asset('frontend/images/small-img.jpg') }}" alt="Cart image">
                                                             </a>
                                                             <div class="media-body">
                                                                 <h5><a href="course-details.html">The Complete JavaScript Course 2021: From Zero to Expert!</a></h5>
@@ -204,18 +111,18 @@
                                             <li>
                                                 <div class="shop-cart-btn">
                                                     <div class="avatar-xs">
-                                                        <img class="rounded-full img-fluid" src="images/small-avatar-1.jpg" alt="Avatar image">
+                                                        <img class="rounded-full img-fluid" src="{{ $user->photo ? asset('upload/user_images/'. $user->photo) : asset('upload/no_image.jpg') }}" alt="Avatar image">
                                                     </div>
                                                     <span class="dot-status bg-1"></span>
                                                 </div>
                                                 <ul class="cart-dropdown-menu after-none p-0 notification-dropdown-menu">
                                                     <li class="menu-heading-block d-flex align-items-center">
                                                         <a href="teacher-detail.html" class="avatar-sm flex-shrink-0 d-block">
-                                                            <img class="rounded-full img-fluid" src="images/small-avatar-1.jpg" alt="Avatar image">
+                                                            <img class="rounded-full img-fluid" src="{{ $user->photo ? asset('upload/user_images/'. $user->photo) : asset('upload/no_image.jpg') }}" alt="Avatar image">
                                                         </a>
                                                         <div class="ml-2">
                                                             <h4><a href="teacher-detail.html" class="text-black">Alex Smith</a></h4>
-                                                            <span class="d-block fs-14 lh-20">alexsmith@example.com</span>
+                                                            <span class="d-block fs-14 lh-20">{{ $user->email }}</span>
                                                         </div>
                                                     </li>
                                                     <li>
@@ -245,35 +152,6 @@
                                                     <li>
                                                         <ul class="generic-list-item">
                                                             <li>
-                                                                <a href="my-courses.html">
-                                                                    <i class="la la-file-video-o mr-1"></i> My courses
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="shopping-cart.html">
-                                                                    <i class="la la-shopping-basket mr-1"></i> My cart
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="my-courses.html">
-                                                                    <i class="la la-heart-o mr-1"></i> My wishlist
-                                                                </a>
-                                                            </li>
-                                                            <li><div class="section-block"></div></li>
-                                                            <li>
-                                                                <a href="dashboard.html">
-                                                                    <i class="la la-bell mr-1"></i> Notifications
-                                                                    <span class="badge bg-info text-white ml-2 p-1">9+</span>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="dashboard-message.html">
-                                                                    <i class="la la-envelope mr-1"></i> Messages
-                                                                    <span class="badge bg-info text-white ml-2 p-1">12+</span>
-                                                                </a>
-                                                            </li>
-                                                            <li><div class="section-block"></div></li>
-                                                            <li>
                                                                 <a href="dashboard-settings.html">
                                                                     <i class="la la-gear mr-1"></i> Settings
                                                                 </a>
@@ -290,7 +168,7 @@
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="dashboard-settings.html">
+                                                                <a href="{{ route('profile.edit') }}">
                                                                     <i class="la la-edit mr-1"></i> Edit profile
                                                                 </a>
                                                             </li>
@@ -396,13 +274,6 @@
                 <ul class="sub-menu">
                     <li><a href="#">All Development</a></li>
                     <li><a href="#">Web Development</a></li>
-                    <li><a href="#">Mobile Apps</a></li>
-                    <li><a href="#">Game Development</a></li>
-                    <li><a href="#">Databases</a></li>
-                    <li><a href="#">Programming Languages</a></li>
-                    <li><a href="#">Software Testing</a></li>
-                    <li><a href="#">Software Engineering</a></li>
-                    <li><a href="#">E-Commerce</a></li>
                 </ul>
             </li>
             <li>
@@ -410,13 +281,6 @@
                 <ul class="sub-menu">
                     <li><a href="#">All Business</a></li>
                     <li><a href="#">Finance</a></li>
-                    <li><a href="#">Entrepreneurship</a></li>
-                    <li><a href="#">Strategy</a></li>
-                    <li><a href="#">Real Estate</a></li>
-                    <li><a href="#">Home Business</a></li>
-                    <li><a href="#">Communications</a></li>
-                    <li><a href="#">Industry</a></li>
-                    <li><a href="#">Other</a></li>
                 </ul>
             </li>
             <li>
@@ -424,10 +288,6 @@
                 <ul class="sub-menu">
                     <li><a href="#">All IT & Software</a></li>
                     <li><a href="#">IT Certification</a></li>
-                    <li><a href="#">Hardware</a></li>
-                    <li><a href="#">Network & Security</a></li>
-                    <li><a href="#">Operating Systems</a></li>
-                    <li><a href="#">Other</a></li>
                 </ul>
             </li>
             <li>
@@ -435,10 +295,6 @@
                 <ul class="sub-menu">
                     <li><a href="#"> All Finance & Accounting</a></li>
                     <li><a href="#">Accounting & Bookkeeping</a></li>
-                    <li><a href="#">Cryptocurrency & Blockchain</a></li>
-                    <li><a href="#">Economics</a></li>
-                    <li><a href="#">Investing & Trading</a></li>
-                    <li><a href="#">Other Finance & Economics</a></li>
                 </ul>
             </li>
             <li>
@@ -446,11 +302,6 @@
                 <ul class="sub-menu">
                     <li><a href="#">All Design</a></li>
                     <li><a href="#">Graphic Design</a></li>
-                    <li><a href="#">Web Design</a></li>
-                    <li><a href="#">Design Tools</a></li>
-                    <li><a href="#">3D & Animation</a></li>
-                    <li><a href="#">User Experience</a></li>
-                    <li><a href="#">Other</a></li>
                 </ul>
             </li>
             <li>
@@ -458,12 +309,6 @@
                 <ul class="sub-menu">
                     <li><a href="#">All Personal Development</a></li>
                     <li><a href="#">Personal Transformation</a></li>
-                    <li><a href="#">Productivity</a></li>
-                    <li><a href="#">Leadership</a></li>
-                    <li><a href="#">Personal Finance</a></li>
-                    <li><a href="#">Career Development</a></li>
-                    <li><a href="#">Parenting & Relationships</a></li>
-                    <li><a href="#">Happiness</a></li>
                 </ul>
             </li>
             <li>
@@ -471,13 +316,6 @@
                 <ul class="sub-menu">
                     <li><a href="#">All Marketing</a></li>
                     <li><a href="#">Digital Marketing</a></li>
-                    <li><a href="#">Search Engine Optimization</a></li>
-                    <li><a href="#">Social Media Marketing</a></li>
-                    <li><a href="#">Branding</a></li>
-                    <li><a href="#">Video & Mobile Marketing</a></li>
-                    <li><a href="#">Affiliate Marketing</a></li>
-                    <li><a href="#">Growth Hacking</a></li>
-                    <li><a href="#">Other</a></li>
                 </ul>
             </li>
             <li>
@@ -485,14 +323,6 @@
                 <ul class="sub-menu">
                     <li><a href="#">All Health & Fitness</a></li>
                     <li><a href="#">Fitness</a></li>
-                    <li><a href="#">Sports</a></li>
-                    <li><a href="#">Dieting</a></li>
-                    <li><a href="#">Self Defense</a></li>
-                    <li><a href="#">Meditation</a></li>
-                    <li><a href="#">Mental Health</a></li>
-                    <li><a href="#">Yoga</a></li>
-                    <li><a href="#">Dance</a></li>
-                    <li><a href="#">Other</a></li>
                 </ul>
             </li>
             <li>
@@ -500,11 +330,6 @@
                 <ul class="sub-menu">
                     <li><a href="#">All Photography</a></li>
                     <li><a href="#">Digital Photography</a></li>
-                    <li><a href="#">Photography Fundamentals</a></li>
-                    <li><a href="#">Commercial Photography</a></li>
-                    <li><a href="#">Video Design</a></li>
-                    <li><a href="#">Photography Tools</a></li>
-                    <li><a href="#">Other</a></li>
                 </ul>
             </li>
         </ul>
