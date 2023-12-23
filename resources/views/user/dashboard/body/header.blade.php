@@ -152,11 +152,6 @@
                                                     <li>
                                                         <ul class="generic-list-item">
                                                             <li>
-                                                                <a href="dashboard-settings.html">
-                                                                    <i class="la la-gear mr-1"></i> Settings
-                                                                </a>
-                                                            </li>
-                                                            <li>
                                                                 <a href="dashboard-purchase-history.html">
                                                                     <i class="la la-history mr-1"></i> Purchase history
                                                                 </a>
@@ -176,6 +171,11 @@
                                                             <li>
                                                                 <a href="#">
                                                                     <i class="la la-question mr-1"></i> Help
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{{ route('user.password.edit', $user->id) }}">
+                                                                    <i class="la la-lock mr-1"></i> Change Password
                                                                 </a>
                                                             </li>
                                                             <li>
