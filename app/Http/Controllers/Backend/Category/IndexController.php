@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Backend\Category;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
     public function __invoke()
     {
-        return 111111;
+        $categories = Category::latest()->get();
+        return view('admin.backend.categories.index', compact('categories'));
     }
 }
