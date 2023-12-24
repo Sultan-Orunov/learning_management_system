@@ -36,13 +36,21 @@ require __DIR__ . '/auth.php';
 
 //Admin Group Middleware
 Route::middleware('auth', 'roles:admin')->group(function () {
-    Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard'])->name('admin.dashboard');
-    Route::get('/admin/logout', [AdminController::class, 'adminLogout'])->name('admin.logout');
-    Route::get('/admin/profile/{user}/edit', [AdminController::class, 'adminProfile'])->name('admin.profile');
-    Route::patch('/admin/profile/{user}', [AdminController::class, 'adminProfileUpdate'])->name('admin.profile.update');
 
-    Route::get('/admin/password/{user}/edit', [AdminController::class, 'adminPasswordEdit'])->name('admin.password.edit');
-    Route::patch('/admin/password/{user}', [AdminController::class, 'adminPasswordUpdate'])->name('admin.password.update');
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/dashboard', [AdminController::class, 'adminDashboard'])->name('admin.dashboard');
+    Route::get('/logout', [AdminController::class, 'adminLogout'])->name('admin.logout');
+    Route::get('/profile/{user}/edit', [AdminController::class, 'adminProfile'])->name('admin.profile');
+    Route::patch('/profile/{user}', [AdminController::class, 'adminProfileUpdate'])->name('admin.profile.update');
+
+    Route::get('/password/{user}/edit', [AdminController::class, 'adminPasswordEdit'])->name('admin.password.edit');
+    Route::patch('/password/{user}', [AdminController::class, 'adminPasswordUpdate'])->name('admin.password.update');
+
+    Route::group(['prefix' => 'categories'], function () {
+        Route::get('/', \App\Http\Controllers\Backend\Category\IndexController::class)->name('admin.category.index');
+    });
+});
+
 });
 //End Admin Group Middleware
 Route::get('/admin/login', [AdminController::class, 'adminLogin'])->name('admin.login');
