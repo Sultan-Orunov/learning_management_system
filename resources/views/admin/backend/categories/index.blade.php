@@ -38,7 +38,7 @@
                     @foreach($categories as $key => $category)
                     <tr>
                         <td>{{ $key+1 }}</td>
-                        <td><img src="{{ asset($category->image) }}"></td>
+                        <td><img style="width: 100px" src="{{ asset($category->image) }}"></td>
                         <td>{{ $category->title }}</td>
                         <td>
                             <div class="d-flex justify-content-center gap-4">

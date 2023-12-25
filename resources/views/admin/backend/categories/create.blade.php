@@ -23,18 +23,20 @@
         <div class="card">
             <div class="card-body p-4">
                 <h5 class="mb-4">Add Category</h5>
-                <form class="row g-3" method="post" enctype="multipart/form-data">
+                <form action="{{ route('admin.category.store') }}" class="row g-3" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="col-md-6">
                         <label for="title" class="form-label">Category Name</label>
-                        <input type="text" name="title" class="form-control" id="title"  >
+                        <input type="text" name="title" value="{{ old('title') }}" class="@error('title') is-invalid @enderror form-control" id="title"  >
+                        @error('title') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
 
                     <div class="col-md-6"></div>
 
                     <div class="col-md-6">
                         <label for="image" class="form-label">Category Image </label>
-                        <input class="form-control" name="image" type="file" id="image">
+                        <input class="@error('image') is-invalid @enderror form-control" name="image" type="file" id="image">
+                        @error('image') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
 
                     <div class="col-md-6">

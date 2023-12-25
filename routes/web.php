@@ -49,6 +49,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::group(['prefix' => 'categories'], function () {
         Route::get('/', \App\Http\Controllers\Backend\Category\IndexController::class)->name('admin.category.index');
         Route::get('/create', \App\Http\Controllers\Backend\Category\CreateController::class)->name('admin.category.create');
+        Route::post('/', \App\Http\Controllers\Backend\Category\StoreController::class)->name('admin.category.store');
     });
 });
 
