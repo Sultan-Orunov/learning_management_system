@@ -12,7 +12,7 @@
                     <ol class="breadcrumb mb-0 p-0">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}"><i class="bx bx-home-alt"></i></a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">Add Category</li>
+                        <li class="breadcrumb-item active" aria-current="page">Edit Category</li>
                     </ol>
                 </nav>
             </div>
@@ -22,12 +22,12 @@
 
         <div class="card">
             <div class="card-body p-4">
-                <h5 class="mb-4">Add Category</h5>
-                <form action="{{ route('admin.category.store') }}" class="row g-3" method="post" enctype="multipart/form-data">
-                    @csrf
+                <h5 class="mb-4">Edit Category</h5>
+                <form action="" class="row g-3" method="post" enctype="multipart/form-data">
+                    @csrf @method('patch')
                     <div class="col-md-6">
                         <label for="title" class="form-label">Category Name</label>
-                        <input type="text" name="title" value="{{ old('title') }}" class="@error('title') is-invalid @enderror form-control" id="title"  >
+                        <input type="text" name="title" value="{{ $category->title }}" class="@error('title') is-invalid @enderror form-control" id="title"  >
                         @error('title') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
 
@@ -40,7 +40,7 @@
                     </div>
 
                     <div class="col-md-6">
-                        <img id="showImage" src="{{ url('upload/no_image.jpg')}}" alt="Admin" class="rounded p-1 bg-primary" width="80">
+                        <img id="showImage" src="{{ asset($category->image) }}" alt="Admin" class="rounded p-1 bg-primary" width="120">
                     </div>
 
                     <div class="col-md-12">

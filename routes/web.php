@@ -50,6 +50,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/', \App\Http\Controllers\Backend\Category\IndexController::class)->name('admin.category.index');
         Route::get('/create', \App\Http\Controllers\Backend\Category\CreateController::class)->name('admin.category.create');
         Route::post('/', \App\Http\Controllers\Backend\Category\StoreController::class)->name('admin.category.store');
+
+        Route::get('/{category}/edit', \App\Http\Controllers\Backend\Category\EditController::class)->name('admin.category.edit');
     });
 });
 
