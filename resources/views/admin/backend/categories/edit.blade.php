@@ -23,8 +23,11 @@
         <div class="card">
             <div class="card-body p-4">
                 <h5 class="mb-4">Edit Category</h5>
-                <form action="" class="row g-3" method="post" enctype="multipart/form-data">
+                <form action="{{ route('admin.category.update', $category->id) }}" class="row g-3" method="post" enctype="multipart/form-data">
                     @csrf @method('patch')
+
+                    <input type="hidden" name="category_id" value="{{ $category->id }}">
+
                     <div class="col-md-6">
                         <label for="title" class="form-label">Category Name</label>
                         <input type="text" name="title" value="{{ $category->title }}" class="@error('title') is-invalid @enderror form-control" id="title"  >

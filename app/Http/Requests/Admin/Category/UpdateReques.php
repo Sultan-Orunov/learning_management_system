@@ -5,7 +5,7 @@ namespace App\Http\Requests\Admin\Category;
 use App\Models\Category;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreReques extends FormRequest
+class UpdateReques extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +23,8 @@ class StoreReques extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|min:3|max:255|unique:categories',
-            'image' => 'required|file',
+            'title' => 'nullable|min:3|max:255|unique:categories,title,'. $this->category_id,
+            'image' => 'nullable|file',
         ];
     }
 }
