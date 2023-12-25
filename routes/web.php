@@ -53,6 +53,7 @@ Route::group(['prefix' => 'admin'], function () {
 
         Route::get('/{category}/edit', \App\Http\Controllers\Backend\Category\EditController::class)->name('admin.category.edit');
         Route::patch('/{category}/', \App\Http\Controllers\Backend\Category\UpdateController::class)->name('admin.category.update');
+        Route::get('/{category}', \App\Http\Controllers\Backend\Category\DeleteController::class)->name('admin.category.delete');
     });
 });
 

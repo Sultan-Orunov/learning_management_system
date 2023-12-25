@@ -43,7 +43,7 @@
                         <td>
                             <div class="d-flex align-items-center justify-content-center gap-4">
                                 <a href="{{ route('admin.category.edit', $category->id) }}"><i class="bx bxs-pencil text-success"></i></a>
-                                <a href=""><i class="bx bxs-trash text-danger"></i></a>
+                                <a href="{{ route('admin.category.delete', $category->id) }}" id="delete"><i class="bx bxs-trash text-danger"></i></a>
                             </div>
                         </td>
                     </tr>
