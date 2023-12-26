@@ -55,6 +55,16 @@ Route::group(['prefix' => 'admin'], function () {
         Route::patch('/{category}/', \App\Http\Controllers\Backend\Category\UpdateController::class)->name('admin.category.update');
         Route::get('/{category}', \App\Http\Controllers\Backend\Category\DeleteController::class)->name('admin.category.delete');
     });
+
+    Route::group(['prefix' => 'subcategories'], function () {
+        Route::get('/', \App\Http\Controllers\Backend\SubCategory\IndexController::class)->name('admin.subcategory.index');
+        Route::get('/create', \App\Http\Controllers\Backend\SubCategory\CreateController::class)->name('admin.subcategory.create');
+        Route::post('/', \App\Http\Controllers\Backend\SubCategory\StoreController::class)->name('admin.subcategory.store');
+
+        Route::get('/{subcategory}/edit', \App\Http\Controllers\Backend\SubCategory\EditController::class)->name('admin.subcategory.edit');
+        Route::patch('/{subcategory}/', \App\Http\Controllers\Backend\SubCategory\UpdateController::class)->name('admin.subcategory.update');
+        Route::get('/{subcategory}', \App\Http\Controllers\Backend\SubCategory\DeleteController::class)->name('admin.subcategory.delete');
+    });
 });
 
 });
