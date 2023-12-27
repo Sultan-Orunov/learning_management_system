@@ -70,6 +70,7 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::group(['prefix' => 'instructors'], function () {
         Route::get('/', [CheckInstructorController::class, 'index'])->name('admin.instructors.index');
+        Route::patch('/{user}', [CheckInstructorController::class, 'update'])->name('admin.instructors.update');
     });
 });
 

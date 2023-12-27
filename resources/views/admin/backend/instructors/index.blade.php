@@ -29,7 +29,6 @@
                             <th>Email</th>
                             <th>Phone</th>
                             <th>Status</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,17 +40,14 @@
                         <td>{{ $instructor->email }}</td>
                         <td>{{ $instructor->phone }}</td>
                         <td>
-                            @if($instructor->status == 1)
-                                <span class="text-success">Active</span>
-                            @else
-                                <span class="text-danger">InActive</span>
-                            @endif
-                        </td>
-                        <td>
-                            <div class="d-flex align-items-center justify-content-center gap-4">
-                                <a href="{{ route('admin.subcategory.edit', $instructor->id) }}"><i class="bx bxs-pencil text-success"></i></a>
-                                <a href="{{ route('admin.subcategory.delete', $instructor->id) }}" id="delete"><i class="bx bxs-trash text-danger"></i></a>
-                            </div>
+                            <form action="{{ route('admin.instructors.update', $instructor->id) }}" method="post">
+                                @csrf @method('patch')
+                                @if($instructor->status == 1)
+                                    <button class="btn btn-success" type="submit">Active</button>
+                                @else
+                                    <button class="btn btn-danger" type="submit">InActive</button>
+                                @endif
+                            </form>
                         </td>
                     </tr>
                     @endforeach
