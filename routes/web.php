@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BecomeInstructorController;
 use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -84,3 +85,4 @@ Route::middleware('auth', 'roles:instructor')->group(function () {
 });
 //End Instructor Group Middleware
 Route::get('/instructor/login', [InstructorController::class, 'instructorLogin'])->name('instructor.login');
+Route::get('/instructor/register', [BecomeInstructorController::class, 'becomeInstructor'])->name('instructor.register');
