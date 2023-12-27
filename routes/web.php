@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\Instructor\CheckInstructorController;
 use App\Http\Controllers\BecomeInstructorController;
 use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\ProfileController;
@@ -65,6 +66,10 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/{subcategory}/edit', \App\Http\Controllers\Backend\SubCategory\EditController::class)->name('admin.subcategory.edit');
         Route::patch('/{subcategory}/', \App\Http\Controllers\Backend\SubCategory\UpdateController::class)->name('admin.subcategory.update');
         Route::get('/{subcategory}', \App\Http\Controllers\Backend\SubCategory\DeleteController::class)->name('admin.subcategory.delete');
+    });
+
+    Route::group(['prefix' => 'instructors'], function () {
+        Route::get('/', [CheckInstructorController::class, 'index'])->name('admin.instructors.index');
     });
 });
 

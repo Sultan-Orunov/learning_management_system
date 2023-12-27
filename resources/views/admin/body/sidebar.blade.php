@@ -32,6 +32,18 @@
                 </li>
             </ul>
         </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class="bx bx-chalkboard"></i>
+                </div>
+                <div class="menu-title">Manage Instructors</div>
+            </a>
+            <ul>
+                <li>
+                    <a href="{{ route('admin.instructors.index') }}"><i class='bx bx-radio-circle'></i>All Instructors</a>
+                </li>
+            </ul>
+        </li>
         <li class="menu-label">UI Elements</li>
         <li>
             <a href="javascript:;" class="has-arrow">
