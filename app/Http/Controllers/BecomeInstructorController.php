@@ -15,5 +15,25 @@ class BecomeInstructorController extends Controller
         return view('frontend.become.register');
     }
 
+    public function instructorRegister(Request $request){
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255',
+            'email' => 'required|email|unique:users',
+            'phone' => 'required',
+            'address' => 'required|string|max:255',
+            'password' => 'required|string|min:8|max:255',
+        ]);
+        $data['password'] = Hash::make($data['password']);
+        $data['role'] = 'instructor';
+        $data['status'] = '0';
 
+        User::create($data);
+
+        $notification = [
+            'message' => 'Instructor Registered Successfully',
+            'alert-type' => 'success',
+        ];
+        return redirect()->route('instructor.login')->with($notification);
+    }
 }

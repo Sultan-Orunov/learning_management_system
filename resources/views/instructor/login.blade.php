@@ -6,13 +6,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--favicon-->
-    <link rel="icon" href="{{ asset('backend/assets/images/favicon-32x32.png') }}" type="image/png" />
+    <link rel="icon" href="{{ asset('backend/assets/images/favicon-32x32.png') }}" type="image/png"/>
     <!--plugins-->
-    <link href="{{ asset('backend/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
-    <link href="{{ asset('backend/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
-    <link href="{{ asset('backend/assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('backend/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('backend/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('backend/assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet"/>
     <!-- loader-->
-    <link href="{{ asset('backend/assets/css/pace.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('backend/assets/css/pace.min.css') }}" rel="stylesheet"/>
     <script src="{{ asset('backend/assets/js/pace.min.js') }}"></script>
     <!-- Bootstrap CSS -->
     <link href="{{ asset('backend/assets/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -20,6 +20,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link href="{{ asset('backend/assets/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/assets/css/icons.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
     <title>Instructor Login</title>
 </head>
 
@@ -30,11 +32,13 @@
         <div class="">
             <div class="row g-0">
 
-                <div class="col-12 col-xl-7 col-xxl-8 auth-cover-left align-items-center justify-content-center d-none d-xl-flex">
+                <div
+                    class="col-12 col-xl-7 col-xxl-8 auth-cover-left align-items-center justify-content-center d-none d-xl-flex">
 
                     <div class="card shadow-none bg-transparent shadow-none rounded-0 mb-0">
                         <div class="card-body">
-                            <img src="{{ asset('backend/assets/images/login-images/login-cover.svg') }}" class="img-fluid auth-img-cover-login" width="650" alt=""/>
+                            <img src="{{ asset('backend/assets/images/login-images/login-cover.svg') }}"
+                                 class="img-fluid auth-img-cover-login" width="650" alt=""/>
                         </div>
                     </div>
 
@@ -56,24 +60,32 @@
                                         @csrf
                                         <div class="col-12">
                                             <label for="email" class="form-label">Email</label>
-                                            <input type="email" class="@error('email') is-invalid @enderror form-control" id="email"  name="email" value="{{ old('email') }}" placeholder="jhon@example.com">
+                                            <input type="email"
+                                                   class="@error('email') is-invalid @enderror form-control" id="email"
+                                                   name="email" value="{{ old('email') }}"
+                                                   placeholder="jhon@example.com">
                                             @error('email') <span class="text-danger">{{ $message }}</span> @enderror
                                         </div>
                                         <div class="col-12">
                                             <label for="password" class="form-label">Password</label>
                                             <div class="input-group" id="password">
-                                                <input type="password" class="form-control border-end-0" name="password" id="password" placeholder="Enter Password">
-                                                <a href="javascript:;" class="input-group-text bg-transparent"><i class="bx bx-hide"></i></a>
+                                                <input type="password" class="form-control border-end-0" name="password"
+                                                       id="password" placeholder="Enter Password">
+                                                <a href="javascript:;" class="input-group-text bg-transparent"><i
+                                                        class="bx bx-hide"></i></a>
                                             </div>
                                             @error('password') <span class="text-danger">{{ $message }}</span> @enderror
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
-                                                <label class="form-check-label" for="flexSwitchCheckChecked">Remember Me</label>
+                                                <input class="form-check-input" type="checkbox"
+                                                       id="flexSwitchCheckChecked">
+                                                <label class="form-check-label" for="flexSwitchCheckChecked">Remember
+                                                    Me</label>
                                             </div>
                                         </div>
-                                        <div class="col-md-6 text-end">	<a href="authentication-forgot-password.html">Forgot Password ?</a>
+                                        <div class="col-md-6 text-end"><a href="authentication-forgot-password.html">Forgot
+                                                Password ?</a>
                                         </div>
                                         <div class="col-12">
                                             <div class="d-grid">
@@ -82,20 +94,29 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="text-center ">
-                                                <p class="mb-0">Don't have an account yet? <a href="authentication-signup.html">Sign up here</a>
+                                                <p class="mb-0">Don't have an account yet? <a
+                                                        href="authentication-signup.html">Sign up here</a>
                                                 </p>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
-                                <div class="login-separater text-center mb-5"> <span>OR SIGN IN WITH</span>
+                                <div class="login-separater text-center mb-5"><span>OR SIGN IN WITH</span>
                                     <hr>
                                 </div>
                                 <div class="list-inline contacts-social text-center">
-                                    <a href="javascript:;" class="list-inline-item bg-facebook text-white border-0 rounded-3"><i class="bx bxl-facebook"></i></a>
-                                    <a href="javascript:;" class="list-inline-item bg-twitter text-white border-0 rounded-3"><i class="bx bxl-twitter"></i></a>
-                                    <a href="javascript:;" class="list-inline-item bg-google text-white border-0 rounded-3"><i class="bx bxl-google"></i></a>
-                                    <a href="javascript:;" class="list-inline-item bg-linkedin text-white border-0 rounded-3"><i class="bx bxl-linkedin"></i></a>
+                                    <a href="javascript:;"
+                                       class="list-inline-item bg-facebook text-white border-0 rounded-3"><i
+                                            class="bx bxl-facebook"></i></a>
+                                    <a href="javascript:;"
+                                       class="list-inline-item bg-twitter text-white border-0 rounded-3"><i
+                                            class="bx bxl-twitter"></i></a>
+                                    <a href="javascript:;"
+                                       class="list-inline-item bg-google text-white border-0 rounded-3"><i
+                                            class="bx bxl-google"></i></a>
+                                    <a href="javascript:;"
+                                       class="list-inline-item bg-linkedin text-white border-0 rounded-3"><i
+                                            class="bx bxl-linkedin"></i></a>
                                 </div>
 
                             </div>
@@ -135,6 +156,32 @@
 </script>
 <!--app JS-->
 <script src="{{ asset('backend/assets/js/app.js') }}"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script>
+    @if(Session::has('message'))
+    var type = "{{ Session::get('alert-type','info') }}"
+    switch (type) {
+        case 'info':
+            toastr.info(" {{ Session::get('message') }} ");
+            break;
+
+        case 'success':
+            toastr.success(" {{ Session::get('message') }} ");
+            break;
+
+        case 'warning':
+            toastr.warning(" {{ Session::get('message') }} ");
+            break;
+
+        case 'error':
+            toastr.error(" {{ Session::get('message') }} ");
+            break;
+    }
+    @endif
+</script>
+
 </body>
 
 </html>

@@ -86,3 +86,4 @@ Route::middleware('auth', 'roles:instructor')->group(function () {
 //End Instructor Group Middleware
 Route::get('/instructor/login', [InstructorController::class, 'instructorLogin'])->name('instructor.login');
 Route::get('/instructor/register', [BecomeInstructorController::class, 'becomeInstructor'])->name('instructor.register');
+Route::post('/instructor', [BecomeInstructorController::class, 'instructorRegister'])->name('instructor.store');
