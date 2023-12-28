@@ -19,38 +19,15 @@
             </a>
         </li>
         @if(auth()->user()->status === '1')
-            <li>
-                <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class="bx bx-category"></i>
-                    </div>
-                    <div class="menu-title">Application</div>
-                </a>
-                <ul>
-                    <li> <a href="app-emailbox.html"><i class='bx bx-radio-circle'></i>Email</a>
-                    </li>
-                    <li> <a href="app-chat-box.html"><i class='bx bx-radio-circle'></i>Chat Box</a>
-                    </li>
-                    <li> <a href="app-file-manager.html"><i class='bx bx-radio-circle'></i>File Manager</a>
-                    </li>
-                    <li> <a href="app-contact-list.html"><i class='bx bx-radio-circle'></i>Contatcs</a>
-                    </li>
-                    <li> <a href="app-to-do.html"><i class='bx bx-radio-circle'></i>Todo List</a>
-                    </li>
-                    <li> <a href="app-invoice.html"><i class='bx bx-radio-circle'></i>Invoice</a>
-                    </li>
-                    <li> <a href="app-fullcalender.html"><i class='bx bx-radio-circle'></i>Calendar</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="menu-label">UI Elements</li>
+            <li class="menu-label">Course Manage</li>
             <li>
                 <a href="javascript:;" class="has-arrow">
                     <div class="parent-icon"><i class='bx bx-cart'></i>
                     </div>
-                    <div class="menu-title">eCommerce</div>
+                    <div class="menu-title">Course Manage</div>
                 </a>
                 <ul>
-                    <li> <a href="ecommerce-products.html"><i class='bx bx-radio-circle'></i>Products</a>
+                    <li> <a href="{{ route('instructor.courses.index') }}"><i class='bx bx-radio-circle'></i>All Course</a>
                     </li>
                     <li> <a href="ecommerce-products-details.html"><i class='bx bx-radio-circle'></i>Product Details</a>
                     </li>

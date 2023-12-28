@@ -27,6 +27,11 @@
     <link rel="stylesheet" href="{{ asset('backend/assets/css/header-colors.css') }}"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+
+    <!-- Datatable -->
+    <link href="{{ asset('backend/assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
+    <!-- End Datatable -->
+
     <title>Instructor Dashboard</title>
 </head>
 
@@ -97,6 +102,17 @@
     }
     @endif
 </script>
+
+<!--Datatable-->
+<script src="{{ asset('backend/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('backend/assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+</script>
+<!--End Datatable-->
+
 </body>
 
 </html>

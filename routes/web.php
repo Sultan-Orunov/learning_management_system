@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\Instructor\CheckInstructorController;
 use App\Http\Controllers\BecomeInstructorController;
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -80,16 +81,22 @@ Route::get('/admin/login', [AdminController::class, 'adminLogin'])->name('admin.
 
 
 //Instructor Group Middleware
-Route::middleware('auth', 'roles:instructor')->group(function () {
-    Route::get('/instructor/dashboard', [InstructorController::class, 'instructorDashboard'])->name('instructor.dashboard');
-    Route::get('/instructor/logout', [InstructorController::class, 'instructorLogout'])->name('instructor.logout');
-    Route::get('/instructor/profile/{user}/edit', [InstructorController::class, 'instructorProfile'])->name('instructor.profile');
-    Route::patch('/instructor/profile/{user}', [InstructorController::class, 'instructorProfileUpdate'])->name('instructor.profile.update');
+Route::group(['prefix' => 'instructor'], function () {
+    Route::get('/dashboard', [InstructorController::class, 'instructorDashboard'])->name('instructor.dashboard');
+    Route::get('/logout', [InstructorController::class, 'instructorLogout'])->name('instructor.logout');
+    Route::get('/profile/{user}/edit', [InstructorController::class, 'instructorProfile'])->name('instructor.profile');
+    Route::patch('/profile/{user}', [InstructorController::class, 'instructorProfileUpdate'])->name('instructor.profile.update');
 
-    Route::get('/instructor/password/{user}/edit', [InstructorController::class, 'instructorPasswordEdit'])->name('instructor.password.edit');
-    Route::patch('/instructor/password/{user}', [InstructorController::class, 'instructorPasswordUpdate'])->name('instructor.password.update');
-});
+    Route::get('/password/{user}/edit', [InstructorController::class, 'instructorPasswordEdit'])->name('instructor.password.edit');
+    Route::patch('/password/{user}', [InstructorController::class, 'instructorPasswordUpdate'])->name('instructor.password.update');
+
+    Route::group(['prefix' => 'courses'], function () {
+        Route::get('/', [CourseController::class, 'index'])->name('instructor.courses.index');
+    });
+
+})->middleware('auth', 'roles:instructor');
 //End Instructor Group Middleware
+
 Route::get('/instructor/login', [InstructorController::class, 'instructorLogin'])->name('instructor.login');
 Route::get('/instructor/register', [BecomeInstructorController::class, 'becomeInstructor'])->name('instructor.register');
 Route::post('/instructor', [BecomeInstructorController::class, 'instructorRegister'])->name('instructor.store');
