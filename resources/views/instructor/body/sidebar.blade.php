@@ -27,9 +27,9 @@
                     <div class="menu-title">Course Manage</div>
                 </a>
                 <ul>
-                    <li> <a href="{{ route('instructor.courses.index') }}"><i class='bx bx-radio-circle'></i>All Course</a>
+                    <li> <a href="{{ route('instructor.course.index') }}"><i class='bx bx-radio-circle'></i>All Course</a>
                     </li>
-                    <li> <a href="ecommerce-products-details.html"><i class='bx bx-radio-circle'></i>Product Details</a>
+                    <li> <a href="{{ route('instructor.course.create') }}"><i class='bx bx-radio-circle'></i>Add Course</a>
                     </li>
                 </ul>
             </li>

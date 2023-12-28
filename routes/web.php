@@ -91,7 +91,11 @@ Route::group(['prefix' => 'instructor'], function () {
     Route::patch('/password/{user}', [InstructorController::class, 'instructorPasswordUpdate'])->name('instructor.password.update');
 
     Route::group(['prefix' => 'courses'], function () {
-        Route::get('/', [CourseController::class, 'index'])->name('instructor.courses.index');
+        Route::get('/', [CourseController::class, 'index'])->name('instructor.course.index');
+        Route::get('/create', [CourseController::class, 'create'])->name('instructor.course.create');
+
+
+        Route::get('/subcategory/ajax/{category_id}', [CourseController::class, 'getSubCategories']);
     });
 
 })->middleware('auth', 'roles:instructor');

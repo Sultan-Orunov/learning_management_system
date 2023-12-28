@@ -15,7 +15,7 @@
             </div>
             <div class="ms-auto">
                 <div class="btn-group">
-                    <a href="#" class="btn btn-primary px-5">Add Course</a>
+                    <a href="{{ route('instructor.course.create') }}" class="btn btn-primary px-5">Add Course</a>
                 </div>
             </div>
         </div>
