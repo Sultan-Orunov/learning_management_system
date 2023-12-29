@@ -93,6 +93,7 @@ Route::group(['prefix' => 'instructor'], function () {
     Route::group(['prefix' => 'courses'], function () {
         Route::get('/', [CourseController::class, 'index'])->name('instructor.course.index');
         Route::get('/create', [CourseController::class, 'create'])->name('instructor.course.create');
+        Route::post('/', [CourseController::class, 'store'])->name('instructor.course.store');
 
 
         Route::get('/subcategory/ajax/{category_id}', [CourseController::class, 'getSubCategories']);
