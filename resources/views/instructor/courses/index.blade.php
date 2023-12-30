@@ -47,7 +47,8 @@
                                 <td>{{ $course->discount_price}}</td>
                                 <td>
                                     <div class="d-flex align-items-center justify-content-center gap-4">
-                                        <a href="{{ route('admin.category.edit', $course->id) }}"><i class="bx bxs-pencil text-success"></i></a>
+                                        <a href="{{ route('instructor.course.edit', $course->id) }}"><i
+                                                class="bx bxs-pencil text-success"></i></a>
                                         <a href="{{ route('admin.category.delete', $course->id) }}" id="delete"><i class="bx bxs-trash text-danger"></i></a>
                                     </div>
                                 </td>

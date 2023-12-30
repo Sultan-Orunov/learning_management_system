@@ -94,6 +94,8 @@ Route::group(['prefix' => 'instructor'], function () {
         Route::get('/', [CourseController::class, 'index'])->name('instructor.course.index');
         Route::get('/create', [CourseController::class, 'create'])->name('instructor.course.create');
         Route::post('/', [CourseController::class, 'store'])->name('instructor.course.store');
+        Route::get('/{course}/edit', [CourseController::class, 'edit'])->name('instructor.course.edit');
+        Route::patch('/{course}', [CourseController::class, 'update'])->name('instructor.course.update');
 
 
         Route::get('/subcategory/ajax/{category_id}', [CourseController::class, 'getSubCategories']);
