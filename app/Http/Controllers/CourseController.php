@@ -77,14 +77,14 @@ class CourseController extends Controller
 
         $data['name_slug'] = strtolower(str_replace(' ', '-', $data['name']));
 
-        if (isset($data['image'])){
+        if (isset($data['image'])) {
             $image = $data['image'];
             @unlink(public_path($course->image));
             $data['image'] = 'upload/courses/thumbnail/image_' . time() . '.' . $data['image']->getClientOriginalExtension();
             $image->move(public_path('upload/courses/thumbnail'), $data['image']);
         }
 
-        if (isset($data['video'])){
+        if (isset($data['video'])) {
             $video = $data['video'];
             @unlink(public_path($course->video));
             $data['video'] = 'upload/courses/video/video_' . time() . '.' . $data['video']->getClientOriginalExtension();
@@ -93,17 +93,17 @@ class CourseController extends Controller
         $course->update($data);
 
 //        //Course Goals Add
-       if ($request->course_goals != null){
-           $goalsCount = count($request->course_goals);
-           CourseGoal::where('course_id', $course->id)->delete();
+        if ($request->course_goals != null) {
+            $goalsCount = count($request->course_goals);
+            CourseGoal::where('course_id', $course->id)->delete();
 
-           for ($i = 0; $i < $goalsCount; $i++) {
-               $goals = new CourseGoal();
-               $goals->course_id = $course->id;
-               $goals->goal = $request->course_goals[$i];
-               $goals->save();
-           }
-       }
+            for ($i = 0; $i < $goalsCount; $i++) {
+                $goals = new CourseGoal();
+                $goals->course_id = $course->id;
+                $goals->goal = $request->course_goals[$i];
+                $goals->save();
+            }
+        }
         //Course Goals End
 
         $notification = [
@@ -112,6 +112,26 @@ class CourseController extends Controller
         ];
 
         return redirect()->route('instructor.course.index')->with($notification);
+    }
+
+    public function delete(Courses $course)
+    {
+        @unlink(public_path($course->image));
+        @unlink(public_path($course->video));
+
+        $course->delete();
+
+        $goals = CourseGoal::where('course_id', $course->id);
+        foreach ($goals as $item){
+            CourseGoal::where('course_id', $course->id)->delete();
+        }
+
+        $notification = [
+            'message' => 'Course Deleted Successfully',
+            'alert-type' => 'success'
+        ];
+
+        return redirect()->back()->with($notification);
     }
 
     public function getSubCategories($category_id)
